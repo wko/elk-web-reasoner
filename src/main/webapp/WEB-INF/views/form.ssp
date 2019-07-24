@@ -1,0 +1,31 @@
+<%@ val formInput: de.tu_dresden.elk_web.web.FormInput %>
+<%@ val request: javax.servlet.http.HttpServletRequest%>
+<%@ val errors: Map[String, String] = Map() %>
+<% import org.scalatra.forms.views._ %>
+<% import de.tu_dresden.elk_web.web.Command %>
+
+<div class="container">
+  <form action="/" method="POST" class="form-horizontal">
+<div class="form-group <%= if(errors.get("command").nonEmpty) {"has-error"} %>">
+<label class="col-sm-2 control-label" for="command">Select Command(*):</label>
+<div class="col-sm-10">
+  <select class="form-control" name="command", type="text">
+    #for (  v <- Command.values)
+      <option value="<%= v %>" <%= if (formInput.cmd == v) "selected" %>><%= v %></option>
+    #end
+  </select>
+  <span class="error"><%= errors.get("ontology") %></span>
+</div>
+</div>
+    <div class="form-group <%= if(errors.get("text").nonEmpty) {"has-error"} %>">
+      <label class="col-sm-2 control-label" for="data">Data (*):</label>
+      <div class="col-sm-10">
+        <input name="data" type="text" class="form-control" value="<%= formInput.data%>"/>
+        <span class="error"><%= errors.get("text") %></span>
+      </div>
+    </div>
+
+
+<input type="submit" value="Submit" class="btn btn-primary">
+</form>
+</div>

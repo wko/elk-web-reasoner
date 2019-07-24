@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  elk-web:
+    build: .
+    image: elk-web
+    volumes:
+      - .:/root/myapp
+      - ~/.ivy2/local:/root/.ivy2/local
+    #command: /root/bin/run.sh
+    ports:
+      - "8080:8080"
+    environment:
+      - ONTOLOGY_PATH=/root/data/ontologies/snomed.ofn
+      - _JAVA_OPTIONS=-Xmx4g -XX:-UseGCOverheadLimit
+      - DB_USER=postgres 
+      - DB_PASSWORD=
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:
+      - db
+
+      
