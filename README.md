@@ -5,6 +5,10 @@ Exposes the elk interface as a web server.
 The ontology that should be loaded can be specified with the environment variable ONTOLOGY_PATH. 
 The ontology can be classified and then written into a postgresqs DB. 
 
+## Prerequiries:
+
+Publish el2db locally using sbt as described in [el2db](https://github.com/wko/el2db)
+
 ## Running on host machine: 
 
 Make sure you have sbt installed and setup and execute the following commands:
