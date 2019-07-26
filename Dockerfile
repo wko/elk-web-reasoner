@@ -18,10 +18,9 @@ RUN sbt update && \
 
 ENV _JAVA_OPTIONS="-Xmx1024m -XX:-UseGCOverheadLimit"
 
-ENV ONTOLOGY_PATH="/root/data/ontologies/snomed.ofn"
+#ENV ONTOLOGY_PATH="/root/data/ontologies/snomed.ofn"
 
-RUN mkdir -p /root/data/ontologies && \
-    mv /root/myapp/data/ontologies/snomed.ofn /root/data/ontologies
+RUN mkdir -p /root/data/ontologies
 
 VOLUME ["/root/data/ontologies"]
 

@@ -11,6 +11,7 @@ services:
     image: elk-web
     volumes:
       - .:/root/myapp
+      - ./data/ontologies:/root/data/ontologies
       #- ~/.ivy2/local:/root/.ivy2/local
     #command: /root/bin/run.sh
     ports:
