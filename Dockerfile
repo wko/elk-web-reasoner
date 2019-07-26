@@ -23,7 +23,7 @@ ENV ONTOLOGY_PATH="/root/data/ontologies/snomed.ofn"
 RUN mkdir -p /root/data/ontologies && \
     mv /root/myapp/data/ontologies/snomed.ofn /root/data/ontologies
 
-VOLUME ["/root/data/ontologies", "/root/myapp"]
+VOLUME ["/root/data/ontologies"]
 
 EXPOSE 8080
 CMD sbt "~;jetty:stop;jetty:start"

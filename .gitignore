@@ -1,8 +1,6 @@
 .idea
 *.xml
 data
-project
-target
 
 ## generic files to ignore
 *~
