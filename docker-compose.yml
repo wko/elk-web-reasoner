@@ -11,7 +11,7 @@ services:
     image: elk-web
     volumes:
       - .:/root/myapp
-      - ~/.ivy2/local:/root/.ivy2/local
+      #- ~/.ivy2/local:/root/.ivy2/local
     #command: /root/bin/run.sh
     ports:
       - "8080:8080"

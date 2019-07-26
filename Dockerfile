@@ -1,11 +1,20 @@
 FROM hseeberger/scala-sbt
 
 
+# Install el2db on image 
+
+RUN git clone https://github.com/wko/el2db && \ 
+  cd el2db && \ 
+  sbt publishLocal
+
+
 COPY . /root/myapp
 
 WORKDIR /root/myapp
 
-RUN sbt compile   
+
+RUN sbt update && \ 
+  sbt compile   
 
 ENV _JAVA_OPTIONS="-Xmx1024m -XX:-UseGCOverheadLimit"
 
