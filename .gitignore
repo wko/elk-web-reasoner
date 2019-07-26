@@ -1,5 +1,4 @@
 .idea
-*.xml
 data
 
 ## generic files to ignore
