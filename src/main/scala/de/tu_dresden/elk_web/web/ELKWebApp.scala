@@ -97,7 +97,7 @@ class ELKWebApp extends ScalatraServlet with FormSupport with I18nSupport with S
 
     val port = sys.env.get("DB_PORT") match {
       case Some(pw) => pw
-      case None => "5434"
+      case None => "5432"
     }
     def string2sql(s: String): String = "s" + s.filterNot("-_,;.?".contains(_)).toLowerCase
 
@@ -110,13 +110,13 @@ class ELKWebApp extends ScalatraServlet with FormSupport with I18nSupport with S
     val params = DBParams(s"jdbc:postgresql://${host}:${port}", string2sql(f.getName), user, password)
     val dbmanager = DatabaseManager.getManager(params)
     val model = new DatabaseModel(dbmanager)
-    /*if (!model.isInitialized(ontology)) {
+    if (!model.isInitialized(ontology)) {
       logger.info("Model is not initialized..")
       logger.info(s"Saving Model to Database..")
       val infOnt = OntologyUtils.classifyEL(ontology)
       model.saveToDatabase(infOnt)
       logger.info("Model successfully saved to Database..")
-    }*/
+    }
     Future(model)
   }
   val title:String = "ELK Web Interface"
