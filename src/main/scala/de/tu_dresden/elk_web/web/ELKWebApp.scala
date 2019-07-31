@@ -3,6 +3,7 @@ package de.tu_dresden.elk_web.web
 import java.io.File
 
 import com.google.gson.Gson
+import de.tu_dresden.OntologyUtils
 import de.tu_dresden.el2db.{DBParams, DatabaseManager, DatabaseModel}
 import de.tu_dresden.elk_web.web.Command.Command
 import org.apache.log4j.{Level, LogManager}
